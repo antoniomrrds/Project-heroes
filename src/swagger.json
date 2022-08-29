@@ -1,0 +1,59 @@
+{
+    "openapi": "3.0.0",
+    "info":"Api Heroes",
+    "description": "Essa Api tem como  objetivo aprender como documentar Api",
+    "contact":{
+        "email": "antoniomarcos.amrrds@gmail.com"
+    },
+    "version":"1.0.0",
+    "servers":[
+        {
+            "url":"http://localhost:4500/v1",
+            "description":"Api de Test"
+        }
+    ],
+    "paths":{
+        "hero":{
+            "post":{
+                "sumary":"hero record",
+                "tags":["Hero"],
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/Hero"
+                            },
+                            "examples":{
+                                "hero":{
+                                    "value":{ 
+                                        "name":"flash",
+                                        "superPowers":"velocity"
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components":{
+        "schemas":{
+          "Hero":{
+            "type":"object",
+            "properties":{
+                "name":{
+                    "type":"string"
+                },
+                "superPowers":{
+                    "type":"string"
+                },
+                "id":{
+                    "type":"string"
+                }
+            }
+          }
+        }
+    }
+}
