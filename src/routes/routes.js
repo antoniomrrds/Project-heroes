@@ -6,7 +6,10 @@ const router = require('express').Router()
 router.get('/',HomeController.index);
 
 router.get('/hero',HeroesController.index);
-router.post('/hero',HeroesController.create);
+router.get('/hero/:id',HeroesController.show);
+router.post('/hero',HeroesController.store);
+router.put('/hero',HeroesController.update);
+router.delete('/hero/:id',HeroesController.delete);
 
 
 module.exports = router

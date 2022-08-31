@@ -33,12 +33,21 @@ class Heroes {
         }
     }
 
-    async delete() {
+    async delete(id) {
         try {
-            const result = await knex.delete().table('heroes')
-            return result;
+            const search = await this.findById(id)
+            if(search.length > 0){
+                await knex
+                        .where({id:id})
+                        .delete()
+                        .table('heroes');
+                return true;
+            }else{
+                return false;
+            }
         } catch (error) {
             console.error(error)
+            return false;
         }
     }
 }
